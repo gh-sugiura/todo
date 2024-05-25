@@ -28,14 +28,13 @@
     padding-left: 50px;
 }
 
-.create,
-.serch {
+.category {
     display: flex;
     justify-content: center;
     height: 60px;
 }
 
-.create__title {
+.category__title {
     font-size: 25px;
     font-weight: bold;
     padding-left: 25%;
@@ -43,37 +42,25 @@
     margin-bottom: 5px;
 }
 
-.serch__title {
-    font-size: 25px;
-    font-weight: bold;
-    padding-left: 25%;
-    margin-top: 0px;
-    margin-bottom: 5px;
-}
-
-.create-item,
-.serch-item {
+.category-item {
     display: flex;
     justify-content: space-between;
     width: 50%;
 }
 
-.create__todo,
-.serch__todo {
+.category__todo {
     font-size: 15px;
     height: 40px;
     width: 40%;
 }
 
-.create__category,
-.serch__category {
+.create__category {
     font-size: 15px;
     height: 40px;
-    width: 20%;
+    width: 50%;
 }
 
-.create__button,
-.serch__button {
+.category__button {
     font-size: 15px;
     font-weight: bold;
     color: white;

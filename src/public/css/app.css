@@ -4,11 +4,20 @@
     height: 100px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.header__text {
+.header__text_L {
     font-size: 35px;
     font-weight: bold;
     color: white;
+    padding-left: 50px;
+    text-decoration: none;
+}
+
+.header__text_R {
+    font-size: 20px;
+    color: white;
+    padding-right: 50px;
     text-decoration: none;
 }
