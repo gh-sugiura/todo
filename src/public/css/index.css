@@ -130,6 +130,13 @@
     border: none;
 }
 
+.update-form__item-input-p {
+    width: 50%;
+    font-size: 20px;
+    outline: none;
+    border: none;
+}
+
 .update-form__button {
     width: 50px;
 }

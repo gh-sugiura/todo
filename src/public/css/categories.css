@@ -122,7 +122,7 @@
 }
 
 .update-form__button-submit {
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px;
     width: 100%;
     border: none;
@@ -137,7 +137,7 @@
 }
 
 .delete-form__button-submit {
-    font-size: 20px;
+    font-size: 15px;
     padding: 5px;
     width: 100%;
     border: none;

@@ -24,12 +24,18 @@
         </div> 
     @endif
     
-    <h2 class="create__title">新規作成</h2>
+    <h2 class="create__title">Todo新規作成</h2>
     <form action="/todos" class="create" method="POST">
         @csrf
         <div class="create-item">
-            <input type="text" name="content" class="create__todo" placeholder="xxxを確認する">
-            <input type="text" name="content" class="create__category" placeholder="カテゴリ">
+            <input type="text" name="content" class="create__todo" placeholder="xxxを確認する" value="{{old('content')}}">
+            <select class="create__category" name="category_id">
+                @foreach ($categories as $category)
+                    <option class="create__category" value="{{$category["id"]}}">
+                        {{$category["name"]}}
+                    </option>
+                @endforeach
+            </select>
             <button class="create__button" type="submit">
                 作成
             </button>
@@ -51,8 +57,10 @@
     <div class="todo-table">
     <table class="todo-table__inner">
       <tr class="todo-table__row">
-        <th class="todo-table__header">Todo</th>
-        <th class="todo-table__header">カテゴリ</th>
+        <th>
+            <span class="todo-table__header">Todo</span>
+            <span class="todo-table__header">カテゴリ</span> 
+        </th>
       </tr>
 
       @foreach ($todos as $todo)
@@ -62,8 +70,11 @@
                     @csrf
                     @method("PATCH")
                     <div class="update-form__item">
-                        <input class="update-form__item-input" type="text" name="content" value="{{ $todo['content'] }}">
-                        <input type="hidden" name="id" value="{{ $todo['id'] }}">
+                        <input class="update-form__item-input" type="text" name="content" value="{{$todo['content']}}">
+                        <input type="hidden" name="id" value="{{ $todo['id'] }}"> 
+                    </div>
+                    <div class="update-form__item">
+                        <p class="update-form__item-input-p">{{$todo['category']['name']}}</p>
                     </div>
                     <div class="update-form__button">
                         <button class="update-form__button-submit" type="submit">更新</button>
@@ -75,7 +86,7 @@
                     @csrf
                     @method("DELETE")
                     <div class="delete-form__button">
-                        <input type="hidden" name="id" value="{{ $todo['id'] }}">
+                        <input type="hidden" name="id" value="{{$todo['id']}}">
                         <button class="delete-form__button-submit" type="submit">削除</button>
                     </div>
                 </form>
