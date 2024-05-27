@@ -42,13 +42,20 @@
         </div>
     </form>
 
-    <h2 class="serch__title">Todo検索</h2>
-    <form action="/serch" class="serch" method="POST">
+    <h2 class="search__title">Todo検索</h2>
+    <form action="/todos/search" class="search" method="get">
         @csrf
-        <div class="serch-item">
-            <input type="text" name="content" class="serch__todo" placeholder="xxxを確認する">
-            <input type="text" name="content" class="serch__category" placeholder="カテゴリ">
-            <button class="serch__button" type="submit">
+        <div class="search-item">
+            <input type="text" name="keyword" class="search__todo" placeholder="xxxを確認する" value="{{old('keyword')}}">
+            <select class="search__category" name="category_id">
+                <option value=""></option>
+                @foreach ($categories as $category)
+                    <option class="search__category" value="{{$category["id"]}}">
+                        {{$category["name"]}}
+                    </option>
+                @endforeach
+            </select>
+            <button class="search__button" type="submit">
                 検索
             </button>
         </div>
@@ -57,9 +64,9 @@
     <div class="todo-table">
     <table class="todo-table__inner">
       <tr class="todo-table__row">
-        <th>
-            <span class="todo-table__header">Todo</span>
-            <span class="todo-table__header">カテゴリ</span> 
+        <th class="todo-table__header">
+            <span class="todo-table__header-span">Todo</span>
+            <span class="todo-table__header-span">カテゴリ</span> 
         </th>
       </tr>
 
